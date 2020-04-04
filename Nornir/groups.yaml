@@ -1,0 +1,14 @@
+---
+
+cisco:
+    platform: 'ios'
+isis:
+    platform: 'ios'
+ospf:
+    platform: 'ios'
+eigrp:
+    platform: 'ios'
+all:
+    platform: 'ios'
+
+    

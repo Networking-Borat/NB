@@ -1,0 +1,6 @@
+no ip domain-lookup
+service password-encryption
+banner motd % NO UNAUTHORIZED ACCESS %
+username tom privilege 15 password cisco
+username josh privilege 15 password cisco
+

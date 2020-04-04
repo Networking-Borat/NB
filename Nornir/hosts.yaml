@@ -1,0 +1,52 @@
+---
+R1:
+    hostname: 192.168.78.1
+    groups:
+        - cisco
+        - isis
+        - all
+    data:
+        type: internal_isis
+R2:
+    hostname: 192.168.78.2
+    groups:
+        - cisco
+        - isis
+        - all
+    data:
+        asn: 10
+        type: edge_isis
+R3:
+    hostname: 192.168.78.3
+    groups:
+        - cisco
+        - ospf
+        - all
+    data:
+        type: internal_ospf
+R4:
+    hostname: 192.168.78.4
+    groups:
+        - cisco
+        - ospf
+        - all
+    data:
+        asn: 20
+        type: edge_ospf
+R5:
+    hostname: 192.168.78.5
+    groups:
+        - cisco
+        - eigrp
+        - all
+    data:
+        type: internal_eigrp
+R6:
+    hostname: 192.168.78.6
+    groups:
+        - cisco
+        - eigrp
+        - all
+    data:
+        asn: 30
+        type: edge_eigrp

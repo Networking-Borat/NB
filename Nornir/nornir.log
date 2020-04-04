@@ -1,0 +1,553 @@
+2020-04-03 11:52:58,498 -  nornir.core -     INFO -        run() - Running task 'general_config' with args {} on 6 hosts
+2020-04-03 11:53:00,535 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2211, in _check_banner
+    buf = self.packetizer.readline(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 380, in readline
+    buf += self._read_timeout(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 609, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/tasks/networking/netmiko_send_config.py", line 24, in netmiko_send_config
+    net_connect = task.host.get_connection("netmiko", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 302, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 352, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/connections/netmiko.py", line 58, in open
+    self.connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 259, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 327, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 332, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 901, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/client.py", line 406, in connect
+    t.start_client(timeout=timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 660, in start_client
+    raise e
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2039, in run
+    self._check_banner()
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2216, in _check_banner
+    "Error reading SSH protocol banner" + str(e)
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+2020-04-03 11:53:00,536 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 213, in general_config
+    task.run(task=netmiko_send_config, config_file= "general_config")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_config at 0x7f4ed15d7730> (failed)
+
+
+2020-04-03 11:53:00,541 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2211, in _check_banner
+    buf = self.packetizer.readline(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 380, in readline
+    buf += self._read_timeout(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 609, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/tasks/networking/netmiko_send_config.py", line 24, in netmiko_send_config
+    net_connect = task.host.get_connection("netmiko", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 302, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 352, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/connections/netmiko.py", line 58, in open
+    self.connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 259, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 327, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 332, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 901, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/client.py", line 406, in connect
+    t.start_client(timeout=timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 660, in start_client
+    raise e
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2039, in run
+    self._check_banner()
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2216, in _check_banner
+    "Error reading SSH protocol banner" + str(e)
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+2020-04-03 11:53:00,542 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 213, in general_config
+    task.run(task=netmiko_send_config, config_file= "general_config")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_config at 0x7f4ed15d7730> (failed)
+
+
+2020-04-03 11:53:00,567 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2211, in _check_banner
+    buf = self.packetizer.readline(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 380, in readline
+    buf += self._read_timeout(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 609, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/tasks/networking/netmiko_send_config.py", line 24, in netmiko_send_config
+    net_connect = task.host.get_connection("netmiko", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 302, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 352, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/connections/netmiko.py", line 58, in open
+    self.connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 259, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 327, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 332, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 901, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/client.py", line 406, in connect
+    t.start_client(timeout=timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 660, in start_client
+    raise e
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2039, in run
+    self._check_banner()
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2216, in _check_banner
+    "Error reading SSH protocol banner" + str(e)
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+2020-04-03 11:53:00,568 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 213, in general_config
+    task.run(task=netmiko_send_config, config_file= "general_config")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_config at 0x7f4ed15d7730> (failed)
+
+
+2020-04-03 11:53:00,579 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2211, in _check_banner
+    buf = self.packetizer.readline(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 380, in readline
+    buf += self._read_timeout(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 609, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/tasks/networking/netmiko_send_config.py", line 24, in netmiko_send_config
+    net_connect = task.host.get_connection("netmiko", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 302, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 352, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/connections/netmiko.py", line 58, in open
+    self.connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 259, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 327, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 332, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 901, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/client.py", line 406, in connect
+    t.start_client(timeout=timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 660, in start_client
+    raise e
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2039, in run
+    self._check_banner()
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2216, in _check_banner
+    "Error reading SSH protocol banner" + str(e)
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+2020-04-03 11:53:00,580 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 213, in general_config
+    task.run(task=netmiko_send_config, config_file= "general_config")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_config at 0x7f4ed15d7730> (failed)
+
+
+2020-04-03 11:53:00,580 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2211, in _check_banner
+    buf = self.packetizer.readline(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 380, in readline
+    buf += self._read_timeout(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 609, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/tasks/networking/netmiko_send_config.py", line 24, in netmiko_send_config
+    net_connect = task.host.get_connection("netmiko", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 302, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 352, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/connections/netmiko.py", line 58, in open
+    self.connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 259, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 327, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 332, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 901, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/client.py", line 406, in connect
+    t.start_client(timeout=timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 660, in start_client
+    raise e
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2039, in run
+    self._check_banner()
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2216, in _check_banner
+    "Error reading SSH protocol banner" + str(e)
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+2020-04-03 11:53:00,581 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 213, in general_config
+    task.run(task=netmiko_send_config, config_file= "general_config")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_config at 0x7f4ed15d7730> (failed)
+
+
+2020-04-03 11:53:00,581 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2211, in _check_banner
+    buf = self.packetizer.readline(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 380, in readline
+    buf += self._read_timeout(timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/packet.py", line 609, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/tasks/networking/netmiko_send_config.py", line 24, in netmiko_send_config
+    net_connect = task.host.get_connection("netmiko", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 302, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 352, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/connections/netmiko.py", line 58, in open
+    self.connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 259, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 327, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 332, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 901, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/client.py", line 406, in connect
+    t.start_client(timeout=timeout)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 660, in start_client
+    raise e
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2039, in run
+    self._check_banner()
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/transport.py", line 2216, in _check_banner
+    "Error reading SSH protocol banner" + str(e)
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+2020-04-03 11:53:00,581 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 213, in general_config
+    task.run(task=netmiko_send_config, config_file= "general_config")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_config at 0x7f4ed15d7730> (failed)
+
+
+2020-04-03 11:53:00,728 -  nornir.core -     INFO -        run() - Running task 'isis_internal' with args {} on 1 hosts
+2020-04-03 11:53:00,729 -  nornir.core -     INFO -        run() - Running task 'isis_edge' with args {} on 1 hosts
+2020-04-03 11:53:00,729 -  nornir.core -     INFO -        run() - Running task 'ospf_internal' with args {} on 1 hosts
+2020-04-03 11:53:00,730 -  nornir.core -     INFO -        run() - Running task 'ospf_edge' with args {} on 1 hosts
+2020-04-03 11:53:00,731 -  nornir.core -     INFO -        run() - Running task 'eigrp_internal' with args {} on 1 hosts
+2020-04-03 11:53:00,731 -  nornir.core -     INFO -        run() - Running task 'eigrp_edge' with args {} on 1 hosts
+2020-04-03 11:53:10,125 -  nornir.core -     INFO -        run() - Running task 'general_config' with args {} on 6 hosts
+2020-04-03 11:53:16,661 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2020-04-03 11:53:16,662 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 214, in general_config
+    task.run(task=netmiko_send_command, command_strong = "show run")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_command at 0x7f74afdc7620> (failed)
+
+
+2020-04-03 11:53:16,876 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2020-04-03 11:53:16,876 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 214, in general_config
+    task.run(task=netmiko_send_command, command_strong = "show run")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_command at 0x7f74afdc7620> (failed)
+
+
+2020-04-03 11:53:16,889 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2020-04-03 11:53:16,889 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 214, in general_config
+    task.run(task=netmiko_send_command, command_strong = "show run")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_command at 0x7f74afdc7620> (failed)
+
+
+2020-04-03 11:53:16,916 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2020-04-03 11:53:16,916 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 214, in general_config
+    task.run(task=netmiko_send_command, command_strong = "show run")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_command at 0x7f74afdc7620> (failed)
+
+
+2020-04-03 11:53:16,951 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2020-04-03 11:53:16,951 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 214, in general_config
+    task.run(task=netmiko_send_command, command_strong = "show run")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_command at 0x7f74afdc7620> (failed)
+
+
+2020-04-03 11:53:17,045 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2020-04-03 11:53:17,045 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'general_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 214, in general_config
+    task.run(task=netmiko_send_command, command_strong = "show run")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_command at 0x7f74afdc7620> (failed)
+
+
+2020-04-03 11:53:17,119 -  nornir.core -     INFO -        run() - Running task 'isis_internal' with args {} on 1 hosts
+2020-04-03 11:53:17,119 -  nornir.core -     INFO -        run() - Running task 'isis_edge' with args {} on 1 hosts
+2020-04-03 11:53:17,123 -  nornir.core -     INFO -        run() - Running task 'ospf_internal' with args {} on 1 hosts
+2020-04-03 11:53:17,126 -  nornir.core -     INFO -        run() - Running task 'ospf_edge' with args {} on 1 hosts
+2020-04-03 11:53:17,126 -  nornir.core -     INFO -        run() - Running task 'eigrp_internal' with args {} on 1 hosts
+2020-04-03 11:53:17,127 -  nornir.core -     INFO -        run() - Running task 'eigrp_edge' with args {} on 1 hosts
+2020-04-03 11:54:01,149 -  nornir.core -     INFO -        run() - Running task 'general_config' with args {} on 6 hosts
+2020-04-03 11:54:11,524 -  nornir.core -     INFO -        run() - Running task 'isis_internal' with args {} on 1 hosts
+2020-04-03 12:01:51,280 -  nornir.core -     INFO -        run() - Running task 'isis_edge' with args {} on 1 hosts
+2020-04-03 12:01:57,498 -  nornir.core -     INFO -        run() - Running task 'ospf_internal' with args {} on 1 hosts
+2020-04-03 12:08:52,062 -  nornir.core -     INFO -        run() - Running task 'ospf_edge' with args {} on 1 hosts
+2020-04-03 12:08:52,065 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/tasks/networking/netmiko_send_config.py", line 25, in netmiko_send_config
+    net_connect.enable()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco_base_connection.py", line 18, in enable
+    return super().enable(cmd=cmd, pattern=pattern, re_flags=re_flags)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 1563, in enable
+    if not self.check_enable_mode():
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco_base_connection.py", line 14, in check_enable_mode
+    return super().check_enable_mode(check_string=check_string)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 1542, in check_enable_mode
+    self.write_channel(self.RETURN)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 436, in write_channel
+    self._write_channel(out_data)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 394, in _write_channel
+    self.remote_conn.sendall(write_bytes(out_data, encoding=self.encoding))
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/channel.py", line 846, in sendall
+    sent = self.send(s)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/channel.py", line 801, in send
+    return self._send(s, m)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/channel.py", line 1198, in _send
+    raise socket.error("Socket is closed")
+OSError: Socket is closed
+
+2020-04-03 12:08:52,066 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'ospf_edge' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 127, in ospf_edge
+    deploy_loopback = task.run(netmiko_send_config, config_commands=loopback_commands)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_config at 0x7fa14f547730> (failed)
+
+
+2020-04-03 12:08:52,083 -  nornir.core -     INFO -        run() - Running task 'eigrp_internal' with args {} on 1 hosts
+2020-04-03 12:08:52,083 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/tasks/networking/netmiko_send_config.py", line 25, in netmiko_send_config
+    net_connect.enable()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco_base_connection.py", line 18, in enable
+    return super().enable(cmd=cmd, pattern=pattern, re_flags=re_flags)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 1563, in enable
+    if not self.check_enable_mode():
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco_base_connection.py", line 14, in check_enable_mode
+    return super().check_enable_mode(check_string=check_string)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 1542, in check_enable_mode
+    self.write_channel(self.RETURN)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 436, in write_channel
+    self._write_channel(out_data)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 394, in _write_channel
+    self.remote_conn.sendall(write_bytes(out_data, encoding=self.encoding))
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/channel.py", line 846, in sendall
+    sent = self.send(s)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/channel.py", line 801, in send
+    return self._send(s, m)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/channel.py", line 1198, in _send
+    raise socket.error("Socket is closed")
+OSError: Socket is closed
+
+2020-04-03 12:08:52,084 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'eigrp_internal' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 157, in eigrp_internal
+    deploy_loopback = task.run(netmiko_send_config, config_commands=loopback_commands)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_config at 0x7fa14f547730> (failed)
+
+
+2020-04-03 12:08:52,103 -  nornir.core -     INFO -        run() - Running task 'eigrp_edge' with args {} on 1 hosts
+2020-04-03 12:08:52,104 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/plugins/tasks/networking/netmiko_send_config.py", line 25, in netmiko_send_config
+    net_connect.enable()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco_base_connection.py", line 18, in enable
+    return super().enable(cmd=cmd, pattern=pattern, re_flags=re_flags)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 1563, in enable
+    if not self.check_enable_mode():
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco_base_connection.py", line 14, in check_enable_mode
+    return super().check_enable_mode(check_string=check_string)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 1542, in check_enable_mode
+    self.write_channel(self.RETURN)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 436, in write_channel
+    self._write_channel(out_data)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 394, in _write_channel
+    self.remote_conn.sendall(write_bytes(out_data, encoding=self.encoding))
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/channel.py", line 846, in sendall
+    sent = self.send(s)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/channel.py", line 801, in send
+    return self._send(s, m)
+  File "/home/kamil/.local/lib/python3.6/site-packages/paramiko/channel.py", line 1198, in _send
+    raise socket.error("Socket is closed")
+OSError: Socket is closed
+
+2020-04-03 12:08:52,104 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'eigrp_edge' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 85, in start
+    r = self.task(self, **self.params)
+  File "deploy_config.py", line 190, in eigrp_edge
+    deploy_loopback = task.run(netmiko_send_config, config_commands=loopback_commands)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 147, in run
+    raise NornirSubTaskError(task=task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: <function netmiko_send_config at 0x7fa14f547730> (failed)
+
+
+2020-04-03 12:18:05,447 -  nornir.core -     INFO -        run() - Running task 'isis_internal' with args {} on 1 hosts
+2020-04-03 12:18:44,281 -  nornir.core -     INFO -        run() - Running task 'isis_edge' with args {} on 1 hosts
+2020-04-03 12:18:56,616 -  nornir.core -     INFO -        run() - Running task 'ospf_internal' with args {} on 1 hosts
+2020-04-03 12:19:10,865 -  nornir.core -     INFO -        run() - Running task 'ospf_edge' with args {} on 1 hosts
+2020-04-03 12:19:22,918 -  nornir.core -     INFO -        run() - Running task 'eigrp_internal' with args {} on 1 hosts
+2020-04-03 12:19:36,933 -  nornir.core -     INFO -        run() - Running task 'eigrp_edge' with args {} on 1 hosts
+2020-04-03 12:19:48,594 -  nornir.core -     INFO -        run() - Running task 'general_config' with args {} on 6 hosts
